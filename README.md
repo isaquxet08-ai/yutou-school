@@ -1,1 +1,0 @@
-# yutou-school
