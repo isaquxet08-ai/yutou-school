@@ -5,23 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>平潭屿头乡中心小学</title>
     <style>
-        /* ===== 全局重置 & 字体 ===== */
+        /* ===== 全局重置 ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background: #f5f7fa;
+            font-family: "PingFang SC", "Microsoft YaHei", -apple-system, sans-serif;
+            background: #f4f7fb;
             color: #1e2a3a;
             line-height: 1.8;
         }
         a {
-            color: #2a7faa;
+            color: #1a6b8a;
             text-decoration: none;
+            transition: 0.2s;
         }
         a:hover {
+            color: #0b3b5c;
             text-decoration: underline;
         }
         .container {
@@ -30,77 +32,119 @@
             padding: 0 20px;
         }
 
-        /* ===== 顶部横幅 ===== */
+        /* ===== 顶部 ===== */
+        .top-bar {
+            background: #0b2a3d;
+            color: rgba(255,255,255,0.6);
+            font-size: 13px;
+            padding: 6px 0;
+            text-align: right;
+        }
+        .top-bar a {
+            color: rgba(255,255,255,0.6);
+            margin-left: 16px;
+        }
+        .top-bar a:hover {
+            color: #fff;
+        }
+
         .header {
             background: linear-gradient(135deg, #0b3b5c 0%, #1a6b8a 100%);
             color: #fff;
-            padding: 36px 0 28px;
-            text-align: center;
-            border-bottom: 5px solid #f9b83a;
+            padding: 28px 0 22px;
+            border-bottom: 4px solid #f9b83a;
         }
-        .header h1 {
-            font-size: 30px;
+        .header .logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .header .logo .badge {
+            font-size: 40px;
+            line-height: 1;
+        }
+        .header .logo h1 {
+            font-size: 28px;
             font-weight: 700;
-            letter-spacing: 6px;
+            letter-spacing: 4px;
         }
-        .header .sub {
-            margin-top: 6px;
-            font-size: 15px;
+        .header .logo .en {
+            font-size: 14px;
+            opacity: 0.75;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .header .motto {
+            margin-top: 8px;
+            font-size: 14px;
             opacity: 0.85;
-            letter-spacing: 3px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            padding-top: 8px;
         }
-        .header .badge {
-            display: inline-block;
-            margin-top: 10px;
-            background: #f9b83a;
-            color: #0b3b5c;
-            padding: 4px 22px;
-            border-radius: 30px;
-            font-size: 13px;
-            font-weight: 600;
+        .header .motto span {
+            background: rgba(255,255,255,0.12);
+            padding: 2px 14px;
+            border-radius: 20px;
+            margin-right: 10px;
+            font-size: 12px;
+        }
+
+        @media (max-width: 600px) {
+            .header .logo h1 { font-size: 20px; letter-spacing: 2px; }
+            .header .logo .badge { font-size: 28px; }
+            .header .motto { font-size: 12px; }
         }
 
         /* ===== 导航 ===== */
         .nav {
             background: #fff;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             position: sticky;
             top: 0;
-            z-index: 10;
+            z-index: 100;
         }
         .nav ul {
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 6px 28px;
-            padding: 14px 0;
+            gap: 4px 32px;
+            padding: 12px 0;
         }
         .nav ul li a {
             font-size: 15px;
             font-weight: 500;
             color: #1e2a3a;
-            padding: 4px 0;
+            padding: 6px 0;
             border-bottom: 3px solid transparent;
             transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
         }
         .nav ul li a:hover {
-            border-bottom-color: #1a6b8a;
+            border-bottom-color: #f9b83a;
             text-decoration: none;
+            color: #0b3b5c;
+        }
+        @media (max-width: 600px) {
+            .nav ul { gap: 4px 16px; }
+            .nav ul li a { font-size: 13px; }
         }
 
-        /* ===== 主内容 ===== */
+        /* ===== 主体 ===== */
         .main {
-            padding: 32px 0 50px;
+            padding: 30px 0 50px;
         }
 
         /* ===== 卡片 ===== */
         .card {
             background: #fff;
             border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
             padding: 28px 32px;
             margin-bottom: 28px;
+            border: 1px solid rgba(0,0,0,0.03);
         }
         .card-title {
             font-size: 22px;
@@ -109,116 +153,154 @@
             border-left: 5px solid #f9b83a;
             padding-left: 16px;
             margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        .card-title .small {
-            font-size: 14px;
+        .card-title .more {
+            font-size: 13px;
             font-weight: 400;
             color: #8a9aa8;
-            margin-left: 12px;
+        }
+        @media (max-width: 480px) {
+            .card { padding: 18px 16px; }
+            .card-title { font-size: 18px; }
         }
 
         /* ===== 学校概况 ===== */
-        .intro-grid {
+        .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px 40px;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px 40px;
         }
-        .intro-grid p {
+        .about-grid .info p {
             font-size: 15px;
-            color: #2c3e50;
+            padding: 4px 0;
+            border-bottom: 1px solid #f0f4f8;
         }
-        .intro-grid .label {
+        .about-grid .info .label {
             font-weight: 600;
             color: #0b3b5c;
+            display: inline-block;
+            width: 80px;
         }
-        @media (max-width: 600px) {
-            .intro-grid {
-                grid-template-columns: 1fr;
-                gap: 6px;
-            }
+        .about-grid .info .highlight {
+            color: #1a6b8a;
+            font-weight: 600;
+        }
+        .about-grid .right-box {
+            background: #f7faff;
+            border-radius: 8px;
+            padding: 16px 20px;
+            border-left: 3px solid #f9b83a;
+        }
+        .about-grid .right-box h4 {
+            font-size: 15px;
+            color: #0b3b5c;
+            margin-bottom: 6px;
+        }
+        .about-grid .right-box p {
+            font-size: 14px;
+            color: #3d5166;
+        }
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
         }
 
-        /* ===== 新闻列表 ===== */
-        .news-list {
-            list-style: none;
+        /* ===== 新闻卡片 ===== */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
         }
-        .news-list li {
-            padding: 14px 0;
-            border-bottom: 1px solid #eef3f7;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 6px 16px;
+        .news-item {
+            background: #f8faff;
+            border-radius: 8px;
+            padding: 16px 20px;
+            border-bottom: 2px solid transparent;
+            transition: 0.2s;
         }
-        .news-list li:last-child {
-            border-bottom: none;
+        .news-item:hover {
+            border-bottom-color: #f9b83a;
+            background: #f0f7fe;
         }
-        .news-list .date {
-            font-size: 13px;
-            color: #fff;
-            background: #1a6b8a;
-            padding: 2px 14px;
-            border-radius: 14px;
-            white-space: nowrap;
-            font-weight: 500;
+        .news-item .date {
+            font-size: 12px;
+            color: #8a9aa8;
+            background: #e8edf4;
+            padding: 1px 12px;
+            border-radius: 12px;
+            display: inline-block;
         }
-        .news-list .title {
+        .news-item .title {
             font-size: 15px;
+            font-weight: 500;
+            margin-top: 4px;
+            display: block;
+        }
+        .news-item .title a {
             color: #1e2a3a;
         }
-        .news-list .title a {
-            color: #1e2a3a;
-        }
-        .news-list .title a:hover {
+        .news-item .title a:hover {
             color: #1a6b8a;
             text-decoration: none;
         }
-        .news-list .summary {
+        .news-item .summary {
             font-size: 14px;
             color: #7a8a9a;
-            width: 100%;
-            padding-left: 0;
-        }
-        @media (min-width: 768px) {
-            .news-list .summary {
-                padding-left: 80px;
-                width: auto;
-            }
-        }
-
-        /* ===== 师资 ===== */
-        .teacher-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px 30px;
-        }
-        .teacher-item {
-            background: #f7faff;
-            border-radius: 10px;
-            padding: 18px 22px;
-            border-left: 4px solid #1a6b8a;
-        }
-        .teacher-item .name {
-            font-weight: 700;
-            font-size: 17px;
-            color: #0b3b5c;
-        }
-        .teacher-item .desc {
-            font-size: 14px;
-            color: #3d5166;
             margin-top: 4px;
         }
         @media (max-width: 600px) {
-            .teacher-grid {
-                grid-template-columns: 1fr;
-            }
+            .news-grid { grid-template-columns: 1fr; }
         }
 
-        /* ===== 荣誉 ===== */
+        /* ===== 师资 ===== */
+        .teacher-section h4 {
+            font-size: 15px;
+            color: #0b3b5c;
+            margin: 16px 0 10px;
+            padding-left: 12px;
+            border-left: 3px solid #f9b83a;
+        }
+        .teacher-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 14px;
+        }
+        .teacher-item {
+            background: #f7faff;
+            border-radius: 8px;
+            padding: 14px 18px;
+            border-left: 3px solid #1a6b8a;
+        }
+        .teacher-item .name {
+            font-weight: 700;
+            font-size: 16px;
+            color: #0b3b5c;
+        }
+        .teacher-item .title {
+            font-size: 13px;
+            color: #1a6b8a;
+            font-weight: 500;
+        }
+        .teacher-item .desc {
+            font-size: 13px;
+            color: #3d5166;
+            margin-top: 2px;
+        }
+        @media (max-width: 768px) {
+            .teacher-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 480px) {
+            .teacher-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ===== 荣誉标签 ===== */
         .honor-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px 16px;
+            gap: 10px 14px;
+            margin: 10px 0 6px;
         }
         .honor-tags span {
             background: #e8f0f7;
@@ -228,54 +310,112 @@
             font-size: 14px;
             font-weight: 500;
         }
+        .honor-tags .year {
+            background: #f9b83a;
+            color: #0b3b5c;
+        }
+
+        /* ===== 联系信息 ===== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px 30px;
+        }
+        .contact-grid p {
+            font-size: 14px;
+            color: #2c3e50;
+        }
+        .contact-grid .label {
+            font-weight: 600;
+            color: #0b3b5c;
+        }
+        @media (max-width: 600px) {
+            .contact-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 400px) {
+            .contact-grid { grid-template-columns: 1fr; }
+        }
 
         /* ===== 页脚 ===== */
         .footer {
             background: #0b2a3d;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            padding: 30px 0 22px;
-            font-size: 14px;
+            color: rgba(255,255,255,0.7);
+            padding: 28px 0 18px;
             border-top: 4px solid #f9b83a;
         }
-        .footer a {
-            color: rgba(255, 255, 255, 0.8);
+        .footer .container {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 20px;
+        }
+        .footer h5 {
+            color: #fff;
+            font-size: 15px;
+            margin-bottom: 6px;
+        }
+        .footer p, .footer a {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.6;
+        }
+        .footer a:hover {
+            color: #fff;
         }
         .footer .copy {
-            margin-top: 6px;
-            font-size: 13px;
-            opacity: 0.6;
+            grid-column: 1 / -1;
+            text-align: center;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+        @media (max-width: 600px) {
+            .footer .container { grid-template-columns: 1fr; text-align: center; }
         }
 
-        /* ===== 响应式微调 ===== */
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 22px;
-                letter-spacing: 3px;
-            }
-            .card {
-                padding: 18px 16px;
-            }
-            .nav ul {
-                gap: 4px 14px;
-            }
-            .nav ul li a {
-                font-size: 13px;
-            }
-            .card-title {
-                font-size: 18px;
-            }
+        /* ===== 滚动通知 ===== */
+        .notice {
+            background: #fdf8f0;
+            border: 1px solid #f9e8c8;
+            border-radius: 6px;
+            padding: 8px 16px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #7a6a4a;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .notice strong {
+            color: #b87a2a;
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== 顶部 ===== -->
+    <!-- ===== 顶部条 ===== -->
+    <div class="top-bar">
+        <div class="container">
+            欢迎访问平潭屿头乡中心小学官网
+            <a href="#contact">联系我们</a>
+        </div>
+    </div>
+
+    <!-- ===== 头部 ===== -->
     <header class="header">
         <div class="container">
-            <h1>🏫 平潭屿头乡中心小学</h1>
-            <div class="sub">Pingtan Yutou Township Central Primary School</div>
-            <div class="badge">⭐ 省级文明校园</div>
+            <div class="logo">
+                <div class="badge">🏫</div>
+                <div>
+                    <h1>平潭屿头乡中心小学</h1>
+                    <div class="en">Pingtan Yutou Township Central Primary School</div>
+                </div>
+            </div>
+            <div class="motto">
+                <span>校训</span> 崇德 · 明理 · 勤学 · 笃行
+                <span style="margin-left:16px;">🏝️ 海岛教育 · 温暖坚守</span>
+            </div>
         </div>
     </header>
 
@@ -283,11 +423,11 @@
     <nav class="nav">
         <div class="container">
             <ul>
-                <li><a href="#about">学校概况</a></li>
-                <li><a href="#news">校园新闻</a></li>
-                <li><a href="#teachers">师资队伍</a></li>
-                <li><a href="#honor">荣誉特色</a></li>
-                <li><a href="#contact">联系我们</a></li>
+                <li><a href="#about">🏠 学校概况</a></li>
+                <li><a href="#news">📰 校园新闻</a></li>
+                <li><a href="#teachers">👩‍🏫 师资队伍</a></li>
+                <li><a href="#honor">🏅 荣誉特色</a></li>
+                <li><a href="#contact">📬 联系我们</a></li>
             </ul>
         </div>
     </nav>
@@ -295,149 +435,180 @@
     <!-- ===== 主体 ===== -->
     <main class="main container">
 
+        <!-- 通知条 -->
+        <div class="notice">
+            <strong>📢 通知：</strong>
+            本网站由 2026 届毕业生制作维护，欢迎校友和家长访问。
+            <span style="margin-left:auto;font-size:12px;color:#b09070;">更新：2026年6月</span>
+        </div>
+
         <!-- === 学校概况 === -->
         <section class="card" id="about">
-            <div class="card-title">📖 学校概况</div>
-            <div class="intro-grid">
-                <p><span class="label">🏷️ 全称</span><br>平潭屿头乡中心小学</p>
-                <p><span class="label">📍 地址</span><br>福建省平潭综合实验区屿头乡玉瑶村玉瑶456号</p>
-                <p><span class="label">📞 电话</span><br>0591-24205868</p>
-                <p><span class="label">📮 邮编</span><br>350414</p>
-                <p><span class="label">👨‍🏫 在职教师</span><br>约38人</p>
-                <p><span class="label">🧑‍🎓 在校学生</span><br>约475人</p>
-                <p style="grid-column: 1 / -1; margin-top: 6px;">
-                    <span class="label">🎯 办学宗旨</span><br>
-                    实施小学义务教育，促进基础教育发展；小学学历教育（相关社会服务）。
-                    贯彻党的教育方针，坚持社会主义办学方向，对学生进行德育、智育、体育、美育和劳动等方面的教育。
-                </p>
-                <p style="grid-column: 1 / -1;">
-                    <span class="label">🌊 海岛概况</span><br>
-                    学校坐落于平潭西北部的屿头岛，是当地最偏远的岛乡之一。
-                    屿头乡由屿头岛、鼓屿等7个岛屿组成，东北与福清、长乐隔海相望。
-                </p>
+            <div class="card-title">
+                <span>📖 学校概况</span>
+            </div>
+            <div class="about-grid">
+                <div class="info">
+                    <p><span class="label">全称</span>平潭屿头乡中心小学</p>
+                    <p><span class="label">地址</span>福建省平潭综合实验区屿头乡玉瑶村玉瑶456号</p>
+                    <p><span class="label">电话</span>0591-24205868</p>
+                    <p><span class="label">邮编</span>350414</p>
+                    <p><span class="label">师生</span>在职教师 <span class="highlight">约38人</span> · 在校学生 <span class="highlight">约475人</span></p>
+                    <p style="border-bottom:none;padding-top:6px;font-size:14px;color:#3d5166;">
+                        🏝️ 学校坐落于平潭西北部的屿头岛，是当地最偏远的岛乡之一。
+                        屿头乡由屿头岛、鼓屿等7个岛屿组成，东北与福清、长乐隔海相望。
+                    </p>
+                </div>
+                <div class="right-box">
+                    <h4>🎯 办学理念</h4>
+                    <p>实施小学义务教育，促进基础教育发展。</p>
+                    <p style="margin-top:6px;font-size:13px;color:#5a6a7a;">
+                        坚持社会主义办学方向，对学生进行德育、智育、体育、美育和劳动教育。
+                    </p>
+                    <h4 style="margin-top:12px;">👨‍🏫 现任领导</h4>
+                    <p><strong>李云焱</strong> 校长</p>
+                    <p style="font-size:13px;color:#5a6a7a;">1990年师范毕业后扎根海岛，坚守三十余年。</p>
+                </div>
             </div>
         </section>
 
         <!-- === 校园新闻 === -->
         <section class="card" id="news">
-            <div class="card-title">📰 校园新闻 <span class="small">—— 记录海岛教育点滴</span></div>
-            <ul class="news-list">
-                <li>
+            <div class="card-title">
+                <span>📰 校园新闻</span>
+                <span class="more"><a href="#">更多 →</a></span>
+            </div>
+            <div class="news-grid">
+                <div class="news-item">
                     <span class="date">2025.11</span>
-                    <span class="title">📚 <a href="#">爱心立体书走进平潭屿头中心小学，青葫芦公益行首站启动</a></span>
-                    <span class="summary">总价值超一万元立体书入驻校园，“青葫芦爱心图书角”正式落户。</span>
-                </li>
-                <li>
+                    <span class="title"><a href="#">📚 爱心立体书走进屿头中心小学</a></span>
+                    <span class="summary">青葫芦公益行首站启动，总价值超一万元立体书入驻校园</span>
+                </div>
+                <div class="news-item">
                     <span class="date">2025.09</span>
-                    <span class="title">⚡ <a href="#">平潭供电公司“电亮离岛”安全用电第一课</a></span>
-                    <span class="summary">为孩子们普及安全用电知识，点亮海岛新学期。</span>
-                </li>
-                <li>
+                    <span class="title"><a href="#">⚡ 平潭供电公司“电亮离岛”安全用电第一课</a></span>
+                    <span class="summary">为孩子们普及安全用电知识，点亮海岛新学期</span>
+                </div>
+                <div class="news-item">
                     <span class="date">2025.09</span>
-                    <span class="title">🛡️ <a href="#">实验区检察院“检未岚麒麟”禁毒法治课堂进校园</a></span>
-                    <span class="summary">深化“检校共建”，护航未成年人健康成长。</span>
-                </li>
-                <li>
+                    <span class="title"><a href="#">🛡️ 实验区检察院“检未岚麒麟”禁毒法治课堂</a></span>
+                    <span class="summary">深化“检校共建”，护航未成年人健康成长</span>
+                </div>
+                <div class="news-item">
                     <span class="date">2024.12</span>
-                    <span class="title">🏆 <a href="#">陈孟君老师登上省级教学开放活动舞台</a></span>
-                    <span class="summary">《认识分数》一课获广泛好评，展现海岛教师风采。</span>
-                </li>
-                <li>
+                    <span class="title"><a href="#">🏆 陈孟君老师登上省级教学开放活动舞台</a></span>
+                    <span class="summary">《认识分数》一课获广泛好评，展现海岛教师风采</span>
+                </div>
+                <div class="news-item">
                     <span class="date">2024.09</span>
-                    <span class="title">🌹 <a href="#">致敬教师节：扎根19年的海岛教师陈孟君</a></span>
-                    <span class="summary">为留守儿童点燃希望之光，坚守海岛教育一线。</span>
-                </li>
-                <li>
-                    <span class="date">2022.06</span>
-                    <span class="title">🚸 <a href="#">多部门联合开展“六一”安全宣传与普法</a></span>
-                    <span class="summary">苏平片区多单位为孩子们送上节日“安全礼包”。</span>
-                </li>
-                <li>
+                    <span class="title"><a href="#">🌹 扎根海岛19年的教师陈孟君</a></span>
+                    <span class="summary">为留守儿童点燃希望之光，坚守海岛教育一线</span>
+                </div>
+                <div class="news-item">
                     <span class="date">2021.05</span>
-                    <span class="title">🌟 <a href="#">海岛学校校长李云焱：执着坚守，为孩子插上腾飞的翅膀</a></span>
-                    <span class="summary">省级文明校园背后的故事，用“四会”育人模式点亮海岛教育。</span>
-                </li>
-            </ul>
+                    <span class="title"><a href="#">🌟 校长李云焱：为孩子插上腾飞的翅膀</a></span>
+                    <span class="summary">省级文明校园背后的故事，用“四会”育人模式点亮海岛教育</span>
+                </div>
+            </div>
         </section>
 
         <!-- === 师资队伍 === -->
         <section class="card" id="teachers">
-            <div class="card-title">👩‍🏫 师资队伍 <span class="small">—— 用坚守点亮海岛</span></div>
-            <p style="margin-bottom:16px;font-size:15px;color:#3d5166;">
-                学校现有教师 <strong>约38人</strong>。他们扎根海岛，用青春与汗水守护每一个孩子的求学梦。
-            </p>
-            <div class="teacher-grid">
-                <div class="teacher-item">
-                    <div class="name">李云焱 校长</div>
-                    <div class="desc">受父亲影响投身海岛教育，1990年师范毕业后选择回到屿头岛。创新“四会”育人模式，带领学校获评省级文明校园。</div>
-                </div>
-                <div class="teacher-item">
-                    <div class="name">陈孟君 老师</div>
-                    <div class="desc">教导处副主任，数学教师。80后，2005年大学毕业扎根海岛至今超20年。区小学数学名师学科带头人培养对象、省级优秀教师。</div>
-                </div>
-                <div class="teacher-item">
-                    <div class="name">李云英 老师</div>
-                    <div class="desc">德育处主任，负责“扬帆起航”志愿者服务队。致力于乡村阅读推广与留守儿童关爱工作。</div>
-                </div>
-                <div class="teacher-item">
-                    <div class="name">王慧 老师</div>
-                    <div class="desc">数学教师，陪伴同学们成长，是大家信赖的好老师。</div>
-                </div>
-                <div class="teacher-item">
-                    <div class="name">吴正恩 老师</div>
-                    <div class="desc">1993年至今在该校任教，见证学校三十余年发展变迁。</div>
-                </div>
-                <div class="teacher-item">
-                    <div class="name">陈志 老师</div>
-                    <div class="desc">英语教师，一级教师，为海岛孩子打开看世界的窗口。</div>
-                </div>
-                <div class="teacher-item" style="border-left-color:#f9b83a; background:#fcf8f0;">
-                    <div class="name">🏃 体育教师</div>
-                    <div class="desc">姓名待更新 · 2025年新入职，为校园注入新活力。</div>
+            <div class="card-title">
+                <span>👩‍🏫 师资队伍</span>
+                <span class="more">扎根海岛 · 用爱育人</span>
+            </div>
+            <div class="teacher-section">
+                <h4>🏛️ 行政管理</h4>
+                <div class="teacher-grid">
+                    <div class="teacher-item">
+                        <div class="name">李云焱</div>
+                        <div class="title">校长</div>
+                        <div class="desc">1990年师范毕业回乡，创新“四会”育人模式，省级文明校园领航人</div>
+                    </div>
+                    <div class="teacher-item">
+                        <div class="name">陈孟君</div>
+                        <div class="title">教导处副主任 · 数学教师</div>
+                        <div class="desc">2005年大学毕业扎根海岛超20年，省级优秀教师，区学科带头人培养对象</div>
+                    </div>
+                    <div class="teacher-item">
+                        <div class="name">李云英</div>
+                        <div class="title">德育处主任</div>
+                        <div class="desc">负责“扬帆起航”志愿者服务队，致力留守儿童关爱与乡村阅读推广</div>
+                    </div>
                 </div>
             </div>
-            <p style="margin-top:14px;font-size:14px;color:#7a8a9a;background:#f7faff;padding:10px 16px;border-radius:8px;">
-                💡 学校与福建师范大学附属小学于2020年签订结对帮扶协议，通过“名校+”“名师+”体系提升教学质量。
+            <div class="teacher-section" style="margin-top:10px;">
+                <h4>📚 任课教师</h4>
+                <div class="teacher-grid">
+                    <div class="teacher-item">
+                        <div class="name">王慧</div>
+                        <div class="title">数学教师 · 六年1班班主任</div>
+                        <div class="desc">用心陪伴每一位学生成长，是同学们最信赖的引路人</div>
+                    </div>
+                    <div class="teacher-item">
+                        <div class="name">陈志</div>
+                        <div class="title">英语教师 · 一级教师</div>
+                        <div class="desc">2022年作为实验区中高层次人才引进，为海岛孩子打开看世界的窗口</div>
+                    </div>
+                    <div class="teacher-item">
+                        <div class="name">吴正恩</div>
+                        <div class="title">教师</div>
+                        <div class="desc">1993年至今在该校任教，见证学校三十余年发展变迁</div>
+                    </div>
+                    <div class="teacher-item" style="border-left-color:#f9b83a;background:#fcf8f0;">
+                        <div class="name">🏃 体育教师</div>
+                        <div class="title">2025年新入职</div>
+                        <div class="desc">姓名待更新 · 为校园注入新活力</div>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top:14px;font-size:13px;color:#7a8a9a;background:#f7faff;padding:10px 16px;border-radius:6px;border-left:3px solid #1a6b8a;">
+                💡 学校与福建师范大学附属小学于2020年签订结对帮扶协议，通过“名校+”“名师+”体系持续提升教学质量。
             </p>
         </section>
 
         <!-- === 荣誉特色 === -->
         <section class="card" id="honor">
-            <div class="card-title">🏅 荣誉与特色</div>
-            <div style="margin-bottom:14px;">
+            <div class="card-title">
+                <span>🏅 荣誉与特色</span>
+            </div>
+            <div style="margin-bottom:8px;">
                 <span style="font-weight:600;color:#0b3b5c;">🏆 主要荣誉</span>
             </div>
-            <div class="honor-tags" style="margin-bottom:18px;">
-                <span>⭐ 省级文明校园</span>
+            <div class="honor-tags">
+                <span class="year">⭐ 省级文明校园</span>
                 <span>📋 乡村温馨校园建设典型案例</span>
                 <span>🤝 福建师大附小结对帮扶校</span>
             </div>
-            <div style="margin-bottom:14px;">
+            <div style="margin:14px 0 8px;">
                 <span style="font-weight:600;color:#0b3b5c;">🌟 学生风采</span>
-                <ul style="margin-top:8px;padding-left:20px;font-size:15px;color:#2c3e50;">
-                    <li><strong>林毅轩</strong> —— 六年2班班长、大队长，获评“新时代好少年”</li>
-                </ul>
             </div>
-            <div>
+            <ul style="padding-left:20px;font-size:15px;color:#2c3e50;">
+                <li><strong>林毅轩</strong> —— 六年2班班长、大队长，获评“新时代好少年”</li>
+            </ul>
+            <div style="margin:14px 0 8px;">
                 <span style="font-weight:600;color:#0b3b5c;">🌈 办学特色</span>
-                <ul style="margin-top:8px;padding-left:20px;font-size:15px;color:#2c3e50;">
-                    <li><strong>阳光大课间</strong> —— 每天坚持跑操，学生体质优良</li>
-                    <li><strong>“四会”育人</strong> —— 学会求知、学会做事、学会共处、学会做人</li>
-                    <li><strong>留守儿童关爱</strong> —— 针对岛上留守儿童开展德育与心理关怀</li>
-                    <li><strong>书香校园</strong> —— 设立爱心图书角，推动乡村阅读</li>
-                </ul>
             </div>
+            <ul style="padding-left:20px;font-size:15px;color:#2c3e50;">
+                <li><strong>阳光大课间</strong> —— 每天坚持跑操，学生体质优良</li>
+                <li><strong>“四会”育人</strong> —— 学会求知、学会做事、学会共处、学会做人</li>
+                <li><strong>留守儿童关爱</strong> —— 针对岛上留守儿童开展德育与心理关怀</li>
+                <li><strong>书香校园</strong> —— 设立爱心图书角，推动乡村阅读</li>
+            </ul>
         </section>
 
         <!-- === 联系我们 === -->
         <section class="card" id="contact">
-            <div class="card-title">📬 联系我们</div>
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;font-size:15px;">
-                <p><strong>📍 学校地址</strong><br>福建省平潭综合实验区屿头乡玉瑶村玉瑶456号</p>
-                <p><strong>📞 联系电话</strong><br>0591-24205868</p>
-                <p><strong>📧 电子邮箱</strong><br>1509048156@qq.com</p>
-                <p><strong>📮 邮政编码</strong><br>350414</p>
-                <p style="grid-column:1/-1;margin-top:6px;font-size:14px;color:#7a8a9a;">
+            <div class="card-title">
+                <span>📬 联系我们</span>
+            </div>
+            <div class="contact-grid">
+                <p><span class="label">📍 地址</span><br>福建省平潭综合实验区<br>屿头乡玉瑶村玉瑶456号</p>
+                <p><span class="label">📞 电话</span><br>0591-24205868</p>
+                <p><span class="label">📧 邮箱</span><br>office@slda.cc.cd</p>
+                <p><span class="label">📮 邮编</span><br>350414</p>
+                <p style="grid-column:1/-1;font-size:14px;color:#7a8a9a;background:#f7faff;padding:10px 16px;border-radius:6px;margin-top:4px;">
                     💌 志愿者服务队：“扬帆起航”志愿队，以教师为主、带领学生播撒爱心。
                 </p>
             </div>
@@ -448,8 +619,26 @@
     <!-- ===== 页脚 ===== -->
     <footer class="footer">
         <div class="container">
-            <p>🏫 平潭屿头乡中心小学 — 让每个海岛孩子都能享有公平而有质量的教育</p>
-            <p class="copy">© 2026 平潭屿头乡中心小学 | 本站为静态展示页面</p>
+            <div>
+                <h5>🏫 平潭屿头乡中心小学</h5>
+                <p>实施小学义务教育，促进基础教育发展。</p>
+                <p style="margin-top:4px;font-size:12px;opacity:0.5;">本网站由2026届毕业生制作维护</p>
+            </div>
+            <div>
+                <h5>快速链接</h5>
+                <p><a href="#about">学校概况</a></p>
+                <p><a href="#news">校园新闻</a></p>
+                <p><a href="#teachers">师资队伍</a></p>
+            </div>
+            <div>
+                <h5>联系方式</h5>
+                <p>📞 0591-24205868</p>
+                <p>📧 office@slda.cc.cd</p>
+                <p>📍 屿头乡玉瑶村456号</p>
+            </div>
+            <div class="copy">
+                © 2026 平潭屿头乡中心小学 · 保留所有权利 · 本网站为静态展示页面
+            </div>
         </div>
     </footer>
 
