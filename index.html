@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平潭屿头乡中心小学</title>
+    <style>
+        /* ===== 你的原本CSS（完全保留） ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; background: #f4f7fb; color: #1e2a3a; line-height: 1.8; }
+        a { color: #1a6b8a; text-decoration: none; transition: 0.2s; }
+        a:hover { color: #0b3b5c; text-decoration: underline; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .top-bar { background: #0b2a3d; color: rgba(255,255,255,0.6); font-size: 13px; padding: 6px 0; text-align: right; }
+        .top-bar a { color: rgba(255,255,255,0.6); margin-left: 16px; }
+        .top-bar a:hover { color: #fff; }
+        .header { background: linear-gradient(135deg, #0b3b5c 0%, #1a6b8a 100%); color: #fff; padding: 28px 0 22px; border-bottom: 4px solid #f9b83a; }
+        .header .logo { display: flex; align-items: center; gap: 16px; }
+        .header .logo .badge { font-size: 40px; line-height: 1; }
+        .header .logo h1 { font-size: 28px; font-weight: 700; letter-spacing: 4px; }
+        .header .logo .en { font-size: 14px; opacity: 0.75; font-weight: 300; letter-spacing: 2px; }
+        .header .motto { margin-top: 8px; font-size: 14px; opacity: 0.85; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 8px; }
+        .header .motto span { background: rgba(255,255,255,0.12); padding: 2px 14px; border-radius: 20px; margin-right: 10px; font-size: 12px; }
+        @media (max-width: 600px) { .header .logo h1 { font-size: 20px; } .header .logo .badge { font-size: 28px; } }
+        .nav { background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,0.06); position: sticky; top: 0; z-index: 100; }
+        .nav ul { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 32px; padding: 12px 0; }
+        .nav ul li a { font-size: 15px; font-weight: 500; color: #1e2a3a; padding: 6px 0; border-bottom: 3px solid transparent; transition: 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+        .nav ul li a:hover { border-bottom-color: #f9b83a; text-decoration: none; color: #0b3b5c; }
+        @media (max-width: 600px) { .nav ul { gap: 4px 16px; } .nav ul li a { font-size: 13px; } }
+        .main { padding: 30px 0 50px; }
+        .card { background: #fff; border-radius: 10px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); padding: 28px 32px; margin-bottom: 28px; border: 1px solid rgba(0,0,0,0.03); }
+        .card-title { font-size: 22px; font-weight: 700; color: #0b3b5c; border-left: 5px solid #f9b83a; padding-left: 16px; margin-bottom: 18px; display: flex; align-items: center; justify-content: space-between; }
+        .card-title .more { font-size: 13px; font-weight: 400; color: #8a9aa8; }
+        @media (max-width: 480px) { .card { padding: 18px 16px; } .card-title { font-size: 18px; } }
+        .about-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px 40px; }
+        .about-grid .info p { font-size: 15px; padding: 4px 0; border-bottom: 1px solid #f0f4f8; }
+        .about-grid .info .label { font-weight: 600; color: #0b3b5c; display: inline-block; width: 80px; }
+        .about-grid .info .highlight { color: #1a6b8a; font-weight: 600; }
+        .about-grid .right-box { background: #f7faff; border-radius: 8px; padding: 16px 20px; border-left: 3px solid #f9b83a; }
+        .about-grid .right-box h4 { font-size: 15px; color: #0b3b5c; margin-bottom: 6px; }
+        .about-grid .right-box p { font-size: 14px; color: #3d5166; }
+        @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+        .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+        .news-item { background: #f8faff; border-radius: 8px; padding: 16px 20px; border-bottom: 2px solid transparent; transition: 0.2s; }
+        .news-item:hover { border-bottom-color: #f9b83a; background: #f0f7fe; }
+        .news-item .date { font-size: 12px; color: #8a9aa8; background: #e8edf4; padding: 1px 12px; border-radius: 12px; display: inline-block; }
+        .news-item .title { font-size: 15px; font-weight: 500; margin-top: 4px; display: block; }
+        .news-item .title a { color: #1e2a3a; }
+        .news-item .title a:hover { color: #1a6b8a; text-decoration: none; }
+        .news-item .summary { font-size: 14px; color: #7a8a9a; margin-top: 4px; }
+        @media (max-width: 600px) { .news-grid { grid-template-columns: 1fr; } }
+        .teacher-section h4 { font-size: 15px; color: #0b3b5c; margin: 16px 0 10px; padding-left: 12px; border-left: 3px solid #f9b83a; }
+        .teacher-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+        .teacher-item { background: #f7faff; border-radius: 8px; padding: 14px 18px; border-left: 3px solid #1a6b8a; }
+        .teacher-item .name { font-weight: 700; font-size: 16px; color: #0b3b5c; }
+        .teacher-item .title { font-size: 13px; color: #1a6b8a; font-weight: 500; }
+        .teacher-item .desc { font-size: 13px; color: #3d5166; margin-top: 2px; }
+        @media (max-width: 768px) { .teacher-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 480px) { .teacher-grid { grid-template-columns: 1fr; } }
+        .honor-tags { display: flex; flex-wrap: wrap; gap: 10px 14px; margin: 10px 0 6px; }
+        .honor-tags span { background: #e8f0f7; color: #0b3b5c; padding: 4px 20px; border-radius: 30px; font-size: 14px; font-weight: 500; }
+        .honor-tags .year { background: #f9b83a; color: #0b3b5c; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px 30px; }
+        .contact-grid p { font-size: 14px; color: #2c3e50; }
+        .contact-grid .label { font-weight: 600; color: #0b3b5c; }
+        @media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 400px) { .contact-grid { grid-template-columns: 1fr; } }
+        .footer { background: #0b2a3d; color: rgba(255,255,255,0.7); padding: 28px 0 18px; border-top: 4px solid #f9b83a; }
+        .footer .container { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 20px; }
+        .footer h5 { color: #fff; font-size: 15px; margin-bottom: 6px; }
+        .footer p, .footer a { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; }
+        .footer a:hover { color: #fff; }
+        .footer .copy { grid-column: 1 / -1; text-align: center; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.06); font-size: 12px; color: rgba(255,255,255,0.4); }
+        @media (max-width: 600px) { .footer .container { grid-template-columns: 1fr; text-align: center; } }
+        .notice { background: #fdf8f0; border: 1px solid #f9e8c8; border-radius: 6px; padding: 8px 16px; margin-bottom: 20px; font-size: 14px; color: #7a6a4a; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+        .notice strong { color: #b87a2a; }
+
+        /* ===== 新增：登录弹窗 CSS ===== */
+        #loginModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:999; align-items:center; justify-content:center; }
+        .login-box { background:#fff; padding:30px; border-radius:12px; width:320px; box-shadow:0 10px 30px rgba(0,0,0,0.3); }
+        .login-box h3 { margin-top:0; color:#0b3b5c; text-align:center; }
+        .login-box select, .login-box input { width:100%; padding:10px; margin-bottom:12px; border:1px solid #ccc; border-radius:6px; font-size:14px; }
+        .login-box button.login-btn { width:100%; padding:10px; background:#0b3b5c; color:#fff; border:none; border-radius:6px; font-size:16px; cursor:pointer; }
+        .login-box button.login-btn:hover { background:#1a6b8a; }
+        .login-box button.cancel-btn { width:100%; margin-top:10px; padding:8px; background:transparent; border:none; color:#999; cursor:pointer; }
+        .login-msg { text-align:center; margin-top:12px; font-size:13px; color:#c00; display:none; }
+    </style>
+</head>
+<body>
+
+    <!-- ===== 顶部条 ===== -->
+    <div class="top-bar">
+        <div class="container">
+            欢迎访问平潭屿头乡中心小学官网
+            <a href="#contact">联系我们</a>
+        </div>
+    </div>
+
+    <!-- ===== 头部 ===== -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <div class="badge">🏫</div>
+                <div>
+                    <h1>平潭屿头乡中心小学</h1>
+                    <div class="en">Pingtan Yutou Township Central Primary School</div>
+                </div>
+            </div>
+            <div class="motto">
+                <span>校训</span> 崇德 · 明理 · 勤学 · 笃行
+                <span style="margin-left:16px;">🏝️ 海岛教育 · 温暖坚守</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== 导航 ===== -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#about">🏠 学校概况</a></li>
+                <li><a href="#news">📰 校园新闻</a></li>
+                <li><a href="#teachers">👩‍🏫 师资队伍</a></li>
+                <li><a href="#honor">🏅 荣誉特色</a></li>
+                <li><a href="#contact">📬 联系我们</a></li>
+                <!-- 在导航栏添加登录按钮 -->
+                <li><a href="javascript:void(0)" onclick="showLogin()">🔑 登录</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== 主体 ===== -->
+    <main class="main container">
+        <div class="notice">
+            <strong>📢 通知：</strong>
+            本网站由 2026 届毕业生制作维护，欢迎校友和家长访问。
+            <span style="margin-left:auto;font-size:12px;color:#b09070;">更新：2026年6月</span>
+        </div>
+
+        <section class="card" id="about">
+            <div class="card-title"><span>📖 学校概况</span></div>
+            <div class="about-grid">
+                <div class="info">
+                    <p><span class="label">全称</span>平潭屿头乡中心小学</p>
+                    <p><span class="label">地址</span>福建省平潭综合实验区屿头乡玉瑶村玉瑶456号</p>
+                    <p><span class="label">电话</span>0591-24205868</p>
+                    <p><span class="label">邮编</span>350414</p>
+                    <p><span class="label">师生</span>在职教师 <span class="highlight">约38人</span> · 在校学生 <span class="highlight">约475人</span></p>
+                    <p style="border-bottom:none;padding-top:6px;font-size:14px;color:#3d5166;">🏝️ 学校坐落于平潭西北部的屿头岛，是当地最偏远的岛乡之一。</p>
+                </div>
+                <div class="right-box">
+                    <h4>🎯 办学理念</h4><p>实施小学义务教育，促进基础教育发展。</p>
+                    <h4 style="margin-top:12px;">👨‍🏫 现任领导</h4>
+                    <p><strong>李云焱</strong> 校长</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="news">
+            <div class="card-title"><span>📰 校园新闻</span><span class="more"><a href="#">更多 →</a></span></div>
+            <div class="news-grid">
+                <div class="news-item"><span class="date">2025.11</span><span class="title"><a href="#">📚 爱心立体书走进屿头中心小学</a></span><span class="summary">青葫芦公益行首站启动</span></div>
+                <div class="news-item"><span class="date">2025.09</span><span class="title"><a href="#">⚡ 平潭供电公司“电亮离岛”安全用电第一课</a></span><span class="summary">为孩子们普及安全用电知识</span></div>
+                <div class="news-item"><span class="date">2025.09</span><span class="title"><a href="#">🛡️ 实验区检察院“检未岚麒麟”禁毒法治课堂</a></span><span class="summary">深化“检校共建”</span></div>
+                <div class="news-item"><span class="date">2024.12</span><span class="title"><a href="#">🏆 陈孟君老师登上省级教学开放活动舞台</a></span><span class="summary">《认识分数》一课获广泛好评</span></div>
+            </div>
+        </section>
+
+        <section class="card" id="teachers">
+            <div class="card-title"><span>👩‍🏫 师资队伍</span><span class="more">扎根海岛 · 用爱育人</span></div>
+            <div class="teacher-section">
+                <h4>🏛️ 行政管理</h4>
+                <div class="teacher-grid">
+                    <div class="teacher-item"><div class="name">李云焱</div><div class="title">校长</div><div class="desc">省级文明校园领航人</div></div>
+                    <div class="teacher-item"><div class="name">陈孟君</div><div class="title">教导处副主任</div><div class="desc">扎根海岛超20年</div></div>
+                    <div class="teacher-item"><div class="name">李云英</div><div class="title">德育处主任</div><div class="desc">负责“扬帆起航”志愿者服务队</div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" id="honor">
+            <div class="card-title"><span>🏅 荣誉与特色</span></div>
+            <div style="margin-bottom:8px;"><span style="font-weight:600;color:#0b3b5c;">🏆 主要荣誉</span></div>
+            <div class="honor-tags"><span class="year">⭐ 省级文明校园</span><span>📋 乡村温馨校园建设典型案例</span></div>
+            <ul style="padding-left:20px;font-size:15px;color:#2c3e50;margin-top:10px;">
+                <li><strong>阳光大课间</strong> —— 每天坚持跑操</li>
+                <li><strong>“四会”育人</strong> —— 学会求知、做事、共处、做人</li>
+            </ul>
+        </section>
+
+        <section class="card" id="contact">
+            <div class="card-title"><span>📬 联系我们</span></div>
+            <div class="contact-grid">
+                <p><span class="label">📍 地址</span><br>福建省平潭综合实验区屿头乡玉瑶村</p>
+                <p><span class="label">📞 电话</span><br>0591-24205868</p>
+                <p><span class="label">📧 邮箱</span><br>office@slda.cc.cd</p>
+                <p><span class="label">📮 邮编</span><br>350414</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div><h5>🏫 平潭屿头乡中心小学</h5><p>实施小学义务教育，促进基础教育发展。</p></div>
+            <div><h5>快速链接</h5><p><a href="#about">学校概况</a></p><p><a href="#news">校园新闻</a></p></div>
+            <div><h5>联系方式</h5><p>📞 0591-24205868</p><p>📧 office@slda.cc.cd</p></div>
+            <div class="copy">© 2026 平潭屿头乡中心小学 · 保留所有权利</div>
+        </div>
+    </footer>
+
+    <!-- ===== 新增：登录弹窗 HTML ===== -->
+    <div id="loginModal">
+        <div class="login-box">
+            <h3>用户登录</h3>
+            <select id="roleSelect">
+                <option value="admin">管理员</option>
+                <option value="principal">校长</option>
+                <option value="teacher">老师</option>
+                <option value="student">学生</option>
+            </select>
+            <input type="text" id="usernameInput" placeholder="请输入用户名">
+            <input type="password" id="passwordInput" placeholder="请输入子密钥密码">
+            <div id="loginMsg" class="login-msg"></div>
+            <button class="login-btn" onclick="handleLogin()">登 录</button>
+            <button class="cancel-btn" onclick="document.getElementById('loginModal').style.display='none'">取消</button>
+        </div>
+    </div>
+
+    <!-- ===== 新增：前端交互 JS ===== -->
+    <script>
+        // 1. 显示登录框
+        function showLogin() {
+            document.getElementById('loginModal').style.display = 'flex';
+            document.getElementById('loginMsg').style.display = 'none';
+        }
+
+        // 2. 处理登录请求
+        async function handleLogin() {
+            const role = document.getElementById('roleSelect').value;
+            const username = document.getElementById('usernameInput').value.trim();
+            const password = document.getElementById('passwordInput').value.trim();
+            const msgBox = document.getElementById('loginMsg');
+            msgBox.style.display = 'none';
+
+            if(!username || !password) {
+                msgBox.innerText = '请输入用户名和密码';
+                msgBox.style.display = 'block';
+                return;
+            }
+
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password, role })
+                });
+                const data = await res.json();
+
+                if (res.ok && data.success) {
+                    alert(`✅ 登录成功！您当前身份是：${data.role}`);
+                    document.getElementById('loginModal').style.display = 'none';
+                    // 这里可以写登录成功后的逻辑，比如显示管理员按钮
+                    console.log('登录Token:', data.token);
+                } else {
+                    msgBox.innerText = '❌ ' + (data.error || '密码错误或网络错误');
+                    msgBox.style.display = 'block';
+                }
+            } catch(e) {
+                msgBox.innerText = '❌ 后端连接失败，请确认是否已添加 functions 文件夹并部署！';
+                msgBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+                  </html>
